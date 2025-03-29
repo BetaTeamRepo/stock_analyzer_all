@@ -61,12 +61,12 @@ async def process_query(request: QueryRequest):
         if result.error:
             raise HTTPException(status_code=400, detail=result.error)
 
-        transcription = generate_audio_summary(result.insights)
+         # transcription = generate_audio_summary(result.insights)
         return {
             "symbol": result.symbol,
             "summary": result.insights,
             "report_link": result.report_link,
-            "transcription" : transcription,
+            "transcription" : "",
             "anomalies_detected": result.anomalies
         }
 
